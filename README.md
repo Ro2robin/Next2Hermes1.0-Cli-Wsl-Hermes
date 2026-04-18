@@ -4,107 +4,13 @@
 [![Release](https://img.shields.io/github/v/release/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes)](https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/releases)
 [![License](https://img.shields.io/github/license/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes)](./LICENSE)
 
-简体中文 | English | 日本語
+[English](#english) | [简体中文](#简体中文) | [日本語](#日本語)
 
-快速链接 / Quick Links / クイックリンク:
+Quick Links / 快速链接 / クイックリンク:
 - Releases: https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/releases
 - CI: https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/actions/workflows/ci.yml
 - Optimization Plan: ./OPTIMIZATION_PLAN.md
 - Contributing: ./CONTRIBUTING.md
-
----
-
-## 简体中文
-
-这是一个面向 Hermes / CLI agent 的 WSL 原生工作流项目。
-
-它的核心目标是：
-- 以 GitHub Copilot CLI 作为主执行器
-- 以 Codex CLI 作为备用执行器
-- 使用固定 wrapper、结构化结果和稳定的用户回复格式
-- 在 WSL 环境中完成 analyze / fix / implement / review 类任务
-
-这个仓库包含：
-- 可直接加载的 `SKILL.md`
-- 一组可运行的 shell / Python wrapper
-- 一个 one-key 入口 `bin/run_workflow_reply.sh`
-- 多个回归测试脚本
-- 示例说明文档
-
-### 适用场景
-
-适合以下需求：
-- 想在 WSL 中稳定编排 Copilot CLI 与 Codex CLI
-- 想让 Hermes / agent 根据任务类型自动重试、fallback、格式化答复
-- 想把“执行器输出”转换成可直接发给用户的中文结果
-- 想要一个既可文本输出、又可 JSON 输出的统一入口
-
-### 主要特性
-
-- Copilot primary / Codex fallback
-- 支持 `analyze / fix / implement / review`
-- 结构化失败原因分类
-- one-key 入口脚本
-- `--json` 模式，直接返回 reply + metadata + parsed 字段
-- MIT License
-
-### 仓库结构
-
-```text
-SKILL.md                     # 可直接加载的 Hermes skill
-README.md                    # 项目说明（中 / 英 / 日）
-LICENSE                      # MIT License
-bin/                         # 工作流脚本
-tests/                       # 回归测试
-example/                     # 使用示例（中 / 英）
-references/                  # 补充说明文档
-```
-
-### 快速开始
-
-1. 根据你的实际环境，把脚本放到合适目录（默认文档假设 `~/ai-workflow`）。
-2. 确保以下工具已可用：
-   - `copilot`
-   - `codex`
-   - `python3`
-   - `git`
-3. 准备一个 Git 仓库路径和用户请求文件。
-4. 运行 one-key 入口：
-
-```bash
-~/ai-workflow/bin/run_workflow_reply.sh ~/code/myrepo fix ~/ai-workflow/tmp/user_request.txt auto allow gpt-5.4
-```
-
-5. 如果想拿结构化结果：
-
-```bash
-~/ai-workflow/bin/run_workflow_reply.sh --json ~/code/myrepo fix ~/ai-workflow/tmp/user_request.txt auto allow gpt-5.4
-```
-
-### 你会得到什么
-
-默认模式：
-- 最终中文答复
-
-JSON 模式：
-- `reply`
-- `status`
-- `task_type`
-- `executor_used`
-- `reason`
-- `summary`
-- `root_cause`
-- `changed_files`
-- `test_result`
-- 以及相关输出文件路径
-
-### 注意
-
-这个 skill 默认假设在 WSL 内运行，并且偏向以下目录约定：
-- 工作流目录：`~/ai-workflow`
-- 仓库目录：`~/code/<repo>`
-
-如果你的环境不同，可以按自己的目录结构调整脚本或环境变量。
 
 ---
 
@@ -199,6 +105,100 @@ This skill is designed for WSL-first usage and assumes these conventions by defa
 - repo directory: `~/code/<repo>`
 
 If your environment differs, adjust paths or environment variables accordingly.
+
+---
+
+## 简体中文
+
+这是一个面向 Hermes / CLI agent 的 WSL 原生工作流项目。
+
+它的核心目标是：
+- 以 GitHub Copilot CLI 作为主执行器
+- 以 Codex CLI 作为备用执行器
+- 使用固定 wrapper、结构化结果和稳定的用户回复格式
+- 在 WSL 环境中完成 analyze / fix / implement / review 类任务
+
+这个仓库包含：
+- 可直接加载的 `SKILL.md`
+- 一组可运行的 shell / Python wrapper
+- 一个 one-key 入口 `bin/run_workflow_reply.sh`
+- 多个回归测试脚本
+- 示例说明文档
+
+### 适用场景
+
+适合以下需求：
+- 想在 WSL 中稳定编排 Copilot CLI 与 Codex CLI
+- 想让 Hermes / agent 根据任务类型自动重试、fallback、格式化答复
+- 想把“执行器输出”转换成可直接发给用户的中文结果
+- 想要一个既可文本输出、又可 JSON 输出的统一入口
+
+### 主要特性
+
+- Copilot primary / Codex fallback
+- 支持 `analyze / fix / implement / review`
+- 结构化失败原因分类
+- one-key 入口脚本
+- `--json` 模式，直接返回 reply + metadata + parsed 字段
+- MIT License
+
+### 仓库结构
+
+```text
+SKILL.md                     # 可直接加载的 Hermes skill
+README.md                    # 项目说明（中 / 英 / 日）
+LICENSE                      # MIT License
+bin/                         # 工作流脚本
+tests/                       # 回归测试
+example/                     # 使用示例（中 / 英）
+references/                  # 补充说明文档
+```
+
+### 快速开始
+
+1. 根据你的实际环境，把脚本放到合适目录（默认文档假设 `~/ai-workflow`）。
+2. 确保以下工具已可用：
+   - `copilot`
+   - `codex`
+   - `python3`
+   - `git`
+3. 准备一个 Git 仓库路径和用户请求文件。
+4. 运行 one-key 入口：
+
+```bash
+~/ai-workflow/bin/run_workflow_reply.sh ~/code/myrepo fix ~/ai-workflow/tmp/user_request.txt auto allow gpt-5.4
+```
+
+5. 如果想拿结构化结果：
+
+```bash
+~/ai-workflow/bin/run_workflow_reply.sh --json ~/code/myrepo fix ~/ai-workflow/tmp/user_request.txt auto allow gpt-5.4
+```
+
+### 你会得到什么
+
+默认模式：
+- 最终中文答复
+
+JSON 模式：
+- `reply`
+- `status`
+- `task_type`
+- `executor_used`
+- `reason`
+- `summary`
+- `root_cause`
+- `changed_files`
+- `test_result`
+- 以及相关输出文件路径
+
+### 注意
+
+这个 skill 默认假设在 WSL 内运行，并且偏向以下目录约定：
+- 工作流目录：`~/ai-workflow`
+- 仓库目录：`~/code/<repo>`
+
+如果你的环境不同，可以按自己的目录结构调整脚本或环境变量。
 
 ---
 
