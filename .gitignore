@@ -4,3 +4,12 @@ __pycache__/
 *.swp
 *.swo
 .DS_Store
+
+# Workflow outputs
+logs/
+tmp/
+
+# Environment / tooling
+.env
+.venv/
+venv/

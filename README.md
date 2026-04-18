@@ -1,6 +1,16 @@
 # WSL Copilot Primary Workflow
 
+[![CI](https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/actions/workflows/ci.yml/badge.svg)](https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes)](https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/releases)
+[![License](https://img.shields.io/github/license/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes)](./LICENSE)
+
 简体中文 | English | 日本語
+
+快速链接 / Quick Links / クイックリンク:
+- Releases: https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/releases
+- CI: https://github.com/Ro2robin/Next2Hermes1.0-Cli-Wsl-Hermes/actions/workflows/ci.yml
+- Optimization Plan: ./OPTIMIZATION_PLAN.md
+- Contributing: ./CONTRIBUTING.md
 
 ---
 

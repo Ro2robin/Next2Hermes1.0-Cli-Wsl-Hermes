@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Ensure scripts are executable
+        run: |
+          chmod +x scripts/ci_check.sh
+          chmod +x tests/*.sh
+          chmod +x bin/*.sh
+
+      - name: Run regression checks
+        run: scripts/ci_check.sh
